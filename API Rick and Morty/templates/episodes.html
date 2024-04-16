@@ -1,0 +1,35 @@
+<!--filha do layout-->
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="row">
+
+      <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Air_Date</th>
+                <th>Episode</th>
+            </tr>
+        </thead>
+      <tbody>
+        {% for episode in episodes %}
+          <tr>
+            <td>{{ episode.name }}</td>
+            <td>{{ episode.air_date}}</td>
+            <td> {{ episode.episode }} </td>
+            <td>
+                <a href="/episode_id/{{ episode.id }}"
+                class="btn btn-primary">Episode</a>
+                 
+            </td>
+            
+          </tr>
+        {% endfor %}
+        </tbody>
+
+       </table>  
+      </div>
+       
+
+{% endblock %} 

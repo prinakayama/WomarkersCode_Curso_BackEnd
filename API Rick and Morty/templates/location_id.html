@@ -1,0 +1,28 @@
+<!--filha do layout-->
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="row">
+
+        <div class="col-sm-3 col-6">
+
+            <p> <strong> Location nº: </strong> {{location_id.id}}
+            <p> <strong> Name: </strong> {{ location_id.name }} </p>
+            <p> <strong> Type: </strong> {{ location_id.type}} </p>
+            <p> <strong> Dimension:</strong> {{ location_id.dimension}} </p>
+            <p> <strong> Residents: </strong> </p>
+                <ul>
+                 {% for character_url in location_id.residents %}
+                      <li>
+                        {% set v_id_lo = character_url.split('/')[-1] %}
+                          <a href="/character_id/{{v_id_lo}}" >{{ character_url }}  </a> 
+                
+                      </li>
+                {% endfor %}
+                </ul>
+    
+        </div>
+
+    </div>
+
+{% endblock %}

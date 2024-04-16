@@ -1,0 +1,32 @@
+<!--filha do layout-->
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="row">
+
+        <div class="col-sm-3 col-6">
+            
+             <p> <strong> Episode nº: </strong> {{episode_id.id}}
+             <p><strong> Title: </strong>{{ episode_id.name}}</p>
+             <p><strong> Air Date:</strong> {{ episode_id.air_date }}</p>
+             <p><strong> Season Episode: </strong>{{ episode_id.episode }}</p>
+             
+             
+             <p><strong> Characters: </strong> </p>
+                <ul>
+                 {% for character_url in episode_id.characters %}
+                      <li>
+                          {% set v_id = character_url.split('/')[-1] %}
+                          <a href="/character_id/{{v_id}}" >{{ character_url }}  </a> 
+                          
+                      </li>
+                {% endfor %}
+                </ul>
+             
+        </div>
+
+        
+       
+    </div>
+
+{% endblock %}

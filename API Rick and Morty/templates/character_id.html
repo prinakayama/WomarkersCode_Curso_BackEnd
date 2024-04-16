@@ -1,0 +1,40 @@
+<!--filha do layout-->
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-sm-3 col-6">
+
+            <img src="{{ character_id.image }}" alt="{{character_id.name }}"
+            class="img-fluid img-thumbnail" />
+
+            <p> <strong> ID: </strong> {{ character_id.id}} </p>
+            <p><strong> Name: </strong> {{ character_id.name }} </p>
+            <p> <strong>Status:</strong>  {{ character_id.status}} </p>
+            <p> <strong> Species:</strong> {{ character_id.species}} </p>
+            <p> <strong> Gender:</strong> {{ character_id.gender}} </p>
+            <p> <strong> Origin: </strong> 
+                {% set v_id_or = character_id.origin.url.split('/')[-1] %}
+                <a href="/location_id/{{v_id_or}}"> {{ character_id.origin.name }} </a>
+            </p>
+            
+            <p> <strong> Location: </strong> 
+                {% set v_id_lo = character_id.origin.url.split('/')[-1] %}
+                <a href="/location_id/{{v_id_lo}}"> {{ character_id.origin.name }} </a>
+            </p>
+           
+            <p> <strong> Episode: </strong> </p>
+            <ul>
+                {% for episode_url in character_id.episode %}
+                      {% set v_id_ep = episode_url.split('/')[-1] %}
+                      <li> <a href="/episode_id/{{v_id_ep}}"> {{ episode_url }} </a></li>
+                     
+               {% endfor %}
+            </ul>
+            
+            
+             
+        </div>
+    </div>
+{% endblock %}

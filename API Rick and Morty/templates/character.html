@@ -1,0 +1,39 @@
+<!--filha do layout-->
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <div class="row">
+      
+    <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Species</th>
+            <th>Gender</th>
+            <th>Origin</th>
+            <th>Location</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for character in characters %}
+          <tr>
+            <td>{{ character.name }}</td>
+            <td>{{ character.status }}</td>
+            <td>{{ character.species }}</td>
+            <td>{{ character.gender }}</td>
+            <td>{{ character.origin }}</td>
+            <td>{{ character.location }}</td>
+            
+            <td>
+                <a href="/character_id/{{ character.id}}"
+                class="btn btn-primary "> View Profile</a> 
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>  
+    </div>
+
+{% endblock %}
